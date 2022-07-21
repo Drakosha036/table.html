@@ -27,6 +27,13 @@ const interns = [
         firstname: 'Jean-Luc',
         phone: '06 23 23 23 23',
         mail: 'jean-luc.aubert@aelion.fr'
+    },
+    {
+        id: 4,
+        lastname : 'Kostina',
+        firstname : 'Sasha',
+        phone : '07 07 07 07 07',
+        mail : 'sasha@sasha.com'
     }
 ]
 

@@ -31,8 +31,9 @@ table>thead>tr>th {
     */
     border-bottom-width: 2px;
     background-color: lightseagreen;
-    border-right: solid blueviolet;
+    border: solid blueviolet;
     text-align: left;
+    
 }
 
 table tbody tr:nth-child(odd) {
@@ -43,11 +44,11 @@ table tbody tr:nth-child(odd) {
 }
 
 table td {
-    border-right: solid blueviolet;
+    border: solid blueviolet;
 }
 
 table tfoot td {
-    border-right: none;
+    border: none;
     text-align: center;
     text-decoration: underline ;
 }
