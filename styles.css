@@ -1,0 +1,54 @@
+/**
+*commentaire en css /** /
+* Global styles for my documents
+*/
+
+body {
+    background-color: lightgreen;
+    margin: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table head {
+    height: 3em;
+}
+
+table>thead>tr>th {
+    border-bottom: solid blueviolet;
+    /**
+    * Hexa court: #000 a #FFF ca sera la meme dans tout les cas d,utilisation 256 couleurs
+    * Hexa long : #000000 a #FFFFFF
+    * Couleurs rgb et rgba en relatif ou absolu :border: 
+    * rgb(0..255, 0..255, 0..255) rgba(0..255, 0..255, 0..255, 0..1)
+    * rgb(0..100%, 0..100%, 0..100%) rgba(0..100%, 0..100%, 0..100%, 0..1 //opacite entre 0 et 1)
+    * couleurs en HSL (Hue Saturation Luminance)
+    * hsl(0..255, 0..100%; 0..100%) //contraste saturation lumiere
+    * hsl(0..255, 0..100%, 0..100%, 0..1)
+    */
+    border-bottom-width: 2px;
+    background-color: lightseagreen;
+    border-right: solid blueviolet;
+    text-align: left;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: green;
+    /**
+    *background-color: hsl(200, 25%, 30%);
+    */
+}
+
+table td {
+    border-right: solid blueviolet;
+}
+
+table tfoot td {
+    border-right: none;
+    text-align: center;
+    text-decoration: underline ;
+}
+
