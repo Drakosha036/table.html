@@ -89,8 +89,11 @@ const rowMaker = () => {
 }
 rowMaker();
 
-//Event listener : tri on click
-const sortTableOnName = () => {
+
+let tri = 1; 
+
+//Event listener : tri on click ordre croissant
+const sortTableOnName = (/* th */) => {
     console.log('Hello Sorter');
     //faire le copie de tableau d'origin
     const trs = [...document.querySelector('tbody').childNodes];
@@ -99,14 +102,28 @@ const sortTableOnName = () => {
         tr.remove();
     }
 
+    //const sortOrder = parseInt(th.dataset.sort); 
+
     // Sort elements in interns
     interns.sort((intern1, intern2) => {
-        return intern1.lastname.localeCompare(intern2.lastname);
+        //return intern1.lastname.localeCompare(intern2.lastname) * -1; //fonctionne si pas de params th
+        return intern1.lastname.localeCompare(intern2.lastname) * -1; //sortOrder;
     });
+
+    //condition on click ou reclick
+    if (tri === 0) {
+        interns.reverse();
+        tri = 1;
+    } else {
+        tri = 0;
+    }
+
+    //solution de JL
+    //th.dataset.sort = sort * -1;
+
     console.log(interns);
     //rewrite the interns in the table
     rowMaker();
-    console.log('coucou');
 }
 
 
@@ -118,6 +135,8 @@ const buildHeader = (...headers) => {
         if (header === 'Lastname') {
             //have to place an event listener
             th.setAttribute('onclick', 'sortTableOnName()');
+            //th.setAttribute('onSecondClick', 'sortTableOnNameDesc()');
+            th.dataset.sort = 1;
         }
     }
     document.querySelector('thead').appendChild(headerRow);
