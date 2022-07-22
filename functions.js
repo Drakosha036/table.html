@@ -10,6 +10,13 @@ const esNextAdd = () => {
     return 2 + 3;
 }
 
+/**
+ * 
+ * @param {number} operande1 
+ * @param {number} operande2 
+ * @returns Sum of operande1 and operande2 or Nan if not defined
+ */
+
 //argument = operandes on peut nommer comme on veut 
 const addition = (operande1, operande2) => {
     operande1 = 12;
