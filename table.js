@@ -84,6 +84,7 @@ rowMaker();
 //Event listener
 const sortTableOnName = () => {
     console.log('Hello Sorter');
+    //faire le copie de tableau d'origin
     const trs = [...document.querySelector('tbody').childNodes];
     // Delete rows in table
     for (let tr of trs) {
@@ -92,7 +93,7 @@ const sortTableOnName = () => {
 
     // Sort elements in interns
     interns.sort((intern1, intern2) => {
-        return intern1.lastname.localeCompare(intern2.lastname);
+        return intern1.lastname.localeCompare(intern2.lastname)*-1;
     });
     console.log(interns);
     //rewrite the interns in the table
@@ -100,7 +101,18 @@ const sortTableOnName = () => {
 }
 
 
-
+const moi = {
+    nom : 'Aubert'
+}
+console.log(`Moi a le nom de ${moi.nom}`);
+//affecter a un nouvel objet l'objet moi
+const toi = moi;
+console.log(`Toi a le nom ${toi.nom}`);
+toi.nom = 'Pia';
+console.log(`Moi maintenant a le nom ${moi.nom}`);
+const lui = {...moi};
+lui.nom = 'Casper le fantome';
+console.log(`Lui c'est ${lui.nom}`);
 
 
 
