@@ -37,6 +37,30 @@ const interns = [
     }
 ]
 
+/**
+ * 
+ * @param {string} element 
+ * @returns HTML Element 
+ */
+const buildHtmlElement = (element, parent, value) => {
+    //traiter les parametres
+    if (parent === undefined) {
+        //2.Create a td element 
+        return document.createElement(element);
+    } else {
+        //je dois creer l'element, mais je dois aussi l'ajouter a son parent
+        //2.Create a td element 
+        const htmlEl = document.createElement(element);
+        //7. Append the brand new  td to parent tr
+        parent.appendChild(htmlEl);
+        //and write id info
+        htmlEl.innerHTML = value;
+        return htmlEl;
+    }
+    
+}
+
+
 
 const rowMaker = () => {
     const tbody = document.querySelector('tbody');
@@ -48,34 +72,20 @@ const rowMaker = () => {
         //console.log(intern);
 
         //1. Create a tr element
-        const tr = document.createElement('tr');
-        //2.Create a td element and write id info
-        const tdId = document.createElement('td');
-        tdId.innerHTML = intern.id;
-        //3. Append the brand new  td to parent tr
-        tr.appendChild(tdId);
-        //4.Create a td element and write lastname  info
-        const tdLastname = document.createElement('td');
-        tdLastname.innerHTML = intern.lastname;
+        //const tr = document.createElement('tr');
+        const tr = buildHtmlElement('tr');
+
+        const tdId = buildHtmlElement('td', tr, intern.id);
         
-        //5. Append the brand new  td to parent tr
-        tr.appendChild(tdLastname);
-        //6.Create a td element and write firstname info
-        const tdFirstname = document.createElement('td');
-        tdFirstname.innerHTML = intern.firstname;
-        //7. Append the brand new  td to parent tr
-        tr.appendChild(tdFirstname);
+        const tdLastname = buildHtmlElement('td', tr, intern.lastname);
+        
+        const tdFirstname = buildHtmlElement('td', tr, intern.firstname);
 
-        const tdPhone = document.createElement('td');
-        tdPhone.innerHTML = intern.phone;
-        tr.appendChild(tdPhone);
-
-        const tdMail = document.createElement('td');
-        tdMail.innerHTML = intern.mail;
-        tr.appendChild(tdMail);
-
+        const tdPhone = buildHtmlElement('td', tr, intern.phone);
+        
+        const tdMail = buildHtmlElement('td', tr, intern.mail);
+        
         // Append the brand new complete tr to tbody (that's all folks)
-        
         tbody.appendChild(tr);
     }
 }

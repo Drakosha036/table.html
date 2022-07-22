@@ -70,3 +70,4 @@ console.log(`Le Double de la somme de deux valeurs est : ${resultOfDouble}`);
 
 const double = multiply(addition(3, 2), 2);
 console.log(`double egal : ${double}`);
+
