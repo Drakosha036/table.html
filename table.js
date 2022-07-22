@@ -60,8 +60,6 @@ const buildHtmlElement = (element, parent, value) => {
     
 }
 
-
-
 const rowMaker = () => {
     const tbody = document.querySelector('tbody');
 
@@ -91,7 +89,7 @@ const rowMaker = () => {
 }
 rowMaker();
 
-//Event listener
+//Event listener : tri on click
 const sortTableOnName = () => {
     console.log('Hello Sorter');
     //faire le copie de tableau d'origin
@@ -103,12 +101,35 @@ const sortTableOnName = () => {
 
     // Sort elements in interns
     interns.sort((intern1, intern2) => {
-        return intern1.lastname.localeCompare(intern2.lastname)*-1;
+        return intern1.lastname.localeCompare(intern2.lastname);
     });
     console.log(interns);
     //rewrite the interns in the table
     rowMaker();
+    console.log('coucou');
 }
+
+
+const buildHeader = (...headers) => {
+    const headerRow = buildHtmlElement('tr');
+    for (const header of headers) {
+        
+        const th = buildHtmlElement('th', headerRow, header);
+        if (header === 'Lastname') {
+            //have to place an event listener
+            th.setAttribute('onclick', 'sortTableOnName()');
+        }
+    }
+    document.querySelector('thead').appendChild(headerRow);
+    
+}
+
+//call the function
+buildHeader('Id', 'Lastname', 'Firstname', 'Phone', 'Mail');
+
+
+
+
 
 
 const moi = {
